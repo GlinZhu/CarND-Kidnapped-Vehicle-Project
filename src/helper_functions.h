@@ -58,6 +58,26 @@ inline double dist(double x1, double y1, double x2, double y2) {
   return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
+//calcualte multi-guassian distribution for each particle
+inline double multi_gussan(double sigma_x, double sigma_y, double obs_x, double obs_y,
+                    double mu_x, double mu_y) {
+    // calculate normalization term
+    double gauss_norm;
+    gauss_norm = 1 / (2 * M_PI * sigma_x * sigma_y);
+    
+    // calculate exponent
+    double exponent;
+    exponent = (pow(obs_x - mu_x, 2) / (2 * pow(sigma_x, 2)))
+    + (pow(obs_y - mu_y, 2) / (2 * pow(sigma_y, 2)));
+    
+    // calculate weight using normalization terms and exponent
+    double weight;
+    weight = gauss_norm * exp(-exponent);
+    
+    return weight;
+}
+
+
 /**
  * Computes the error between ground truth and particle filter data.
  * @param (gt_x, gt_y, gt_theta) x, y and theta of ground truth
