@@ -125,6 +125,7 @@ You can find the inputs to the particle filter in the `data` directory.
 2. y position
 3. landmark id
 
+### 
 ### All other data the simulator provides, such as observations and controls.
 
 > * Map data provided by 3D Mapping Solutions GmbH.
