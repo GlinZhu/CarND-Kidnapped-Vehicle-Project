@@ -125,7 +125,14 @@ You can find the inputs to the particle filter in the `data` directory.
 2. y position
 3. landmark id
 
-### 
+## Estimation of Robot based on Particle Filter
+With given a particle distribution, there difference methods of evaluation have been used in order to obtain an estimate of the robot. 
+1. Weighted mean
+2. The best particle method which is used in this project. w_j=max(w_k): k=1...M
+    - This method introduces discretization error
+3. The weighted mean in a small window around the best particle (Robust mean)
+    - its the best, but most computationally expensive
+
 ### All other data the simulator provides, such as observations and controls.
 
 > * Map data provided by 3D Mapping Solutions GmbH.
